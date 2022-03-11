@@ -22,7 +22,7 @@ public class Rocket implements GameControlScene {
 	/*
 	 * 2. A constructor does not have a return type and must be named the same as
 	 * the class i.e. public Rocket(){
-	 * 
+	 
 	 * In the constructor initialize:
 	 * 
 	 * x = AsteroidsGame.WIDTH / 2 y = AsteroidsGame.HEIGHT / 2 size = 10
@@ -33,15 +33,19 @@ public class Rocket implements GameControlScene {
 	 * 
 	 * With this you can run the game. use WASD to move and SPACE to fire
 	 */
-
+	public Rocket() {
+		x = AsteroidsGame.WIDTH / 2; 
+		y = AsteroidsGame.HEIGHT / 2; 
+		size = 10;
+		collisionBox = new Rectangle(x - size / 2, y - size / 2, size, size);
+	}
 	/*
 	 * 3. If we want to be able to choose where to place the rocket we can create a
 	 * constructor that has parameters for x and y we can do this like any other
 	 * method public Rocket(int x, int y){
 	 * 
 	 * 
-	 * We also need to initialize our variables again but this time this.x = x
-	 * this.y = y
+	 * We also need to initialize our variables again but this time like x = x. y = y.
 	 * 
 	 * The keyword this refers to the current object, this instance of the rocket,
 	 * so we are setting the member variable x to the x passed to the constructor
@@ -50,7 +54,6 @@ public class Rocket implements GameControlScene {
 	 * constructor.
 	 */
 
-	@Override
 	public void draw(Graphics g) {
 		Graphics2D graphics2D = (Graphics2D) g;
 		graphics2D.rotate(Math.toRadians(angle), x, y);
